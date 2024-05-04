@@ -1,4 +1,4 @@
-package br.com.ApenasUmSonhador.ScreenMatch.model;
+package br.com.ApenasUmSonhador.ScreenMatch.models;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
