@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import br.com.ApenasUmSonhador.ScreenMatch.models.EpisodeData;
-import br.com.ApenasUmSonhador.ScreenMatch.models.MovieData;
 import br.com.ApenasUmSonhador.ScreenMatch.models.SeasonData;
 import br.com.ApenasUmSonhador.ScreenMatch.models.SerieData;
 import br.com.ApenasUmSonhador.ScreenMatch.service.ApiConnect;
@@ -22,23 +21,12 @@ public class ScreenMatchApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		ApiConnect apiConnect = new ApiConnect();
 		ApiResponse apiResponse = new ApiResponse();
-
-		// Serie
-		var json = apiConnect.obterDados("http://www.omdbapi.com/?t=gilmore+girls&apikey=" + "YourApiKey");
-		System.out.println(json);
-		SerieData serieData = apiResponse.getData(json, SerieData.class);
-		System.out.println(serieData);
-
-		// Movie
-		System.out.println("\n FILME");
-		json = apiConnect.obterDados("http://www.omdbapi.com/?t=matrix&apikey=" + "YourApiKey");
-		System.out.println(json);
-		MovieData movieData = apiResponse.getData(json, MovieData.class);
-		System.out.println(movieData);
-
+		var json = "";
+		SerieData serieData = null;
 		// Episode
 		System.out.println("\n EPISODIO");
-		json = apiConnect.obterDados("http://www.omdbapi.com/?t=gilmore+girls&season=1&episode=2&apikey=" + "YourApiKey");
+		json = apiConnect
+				.obterDados("http://www.omdbapi.com/?t=gilmore+girls&season=1&episode=2&apikey=" + "YourApiKey");
 		System.out.println(json);
 		EpisodeData episodeData = apiResponse.getData(json, EpisodeData.class);
 		System.out.println(episodeData);
